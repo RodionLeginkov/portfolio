@@ -100,7 +100,7 @@ const suggestionsRules = {
   'key-spacing': ['error'],
   'keyword-spacing': ['error'],
   'line-comment-position': ['error', 'above'],
-  'linebreak-style': ['error', 'windows'],
+  'linebreak-style': ['error', process.env.NODE_ENV === 'prod' ? "unix" : "windows"],
   'lines-between-class-members': [
     'error',
     'always',
