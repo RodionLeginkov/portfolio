@@ -3,9 +3,11 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
 import useComponentVisible from '../../hooks/useComponentVisible';
 import './Navbar.scss';
+import { socialLinks } from '../../constants/socialMedia';
 
 const Navbar = () => {
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
+
   return (
     <nav className='app__navbar'>
       <div className='app__navbar-logo'>
@@ -36,6 +38,15 @@ const Navbar = () => {
                     <li className='app__flex p-text' key={item}>
                       <div />
                       <a href={`#${item}`} onClick={() => setIsComponentVisible(false)}>{item}</a>
+                    </li>
+                  ))}
+                  {['Telegram', 'Vk', 'Instagram'].map((item) => (
+                    <li className='app__flex p-text' key={`social+${item}`}>
+                      <a href={socialLinks[item]}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => setIsComponentVisible(false)}
+                      >{item}</a>
                     </li>
                   ))}
                 </ul>
