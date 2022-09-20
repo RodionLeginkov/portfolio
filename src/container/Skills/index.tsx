@@ -21,6 +21,7 @@ type IWorks = {
 };
 
 interface IExperience {
+  id: number;
   year: string;
   works: IWorks[];
 }
@@ -28,10 +29,11 @@ interface IExperience {
 const Skills = () => {
   const [skills, setSkills] = useState<ISkills[]>([]);
   const [experiences, setExperiences] = useState<IExperience[]>([]);
+
   const getExperiences = async () => {
     const query = '*[_type == "experiences"]';
     const result = await client.fetch(query);
-    setExperiences(result);
+    setExperiences(result.sort((a: IExperience, b: IExperience) => a.id - b.id));
   };
 
   const getSkills = async () => {
