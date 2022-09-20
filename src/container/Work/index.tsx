@@ -60,7 +60,7 @@ const Work = () => {
   return (
     <>
       <h2 className='head-text'>
-        My creative <span>Portfilio</span> Section
+        My creative <span>Portfilio</span>
       </h2>
       <div className='app__work-filter'>
         {['Web App', 'Server App', 'Mobile App', 'Dapp', 'All'].map((item, index) => (
